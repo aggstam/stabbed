@@ -1,0 +1,6 @@
+[submodule "st"]
+	path = st
+	url = git://git.suckless.org/st
+[submodule "tabbed"]
+	path = tabbed
+	url = git://git.suckless.org/tabbed
