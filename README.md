@@ -15,8 +15,7 @@ You can build everything using the provided Makefile:
 This will build tabbed, st and stabbed inside project folder.
 
 ## Usage
-To execute the script, you have to first give the corresponding permissions,
-and then executing it:
+To run stabbed, you have to first give the corresponding permissions to the script, and then execute it:
 ```
 % chmod a+x stabbed
 % stabbed
