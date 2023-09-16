@@ -9,7 +9,7 @@ all: stabbed
 stabbed: clean
 	$(MAKE) -C $(TABBED_PATH)
 	$(MAKE) -C $(ST_PATH)
-	echo "$(STABED_PATH)/$(TABBED_PATH)/tabbed -cr 2 $(STABED_PATH)/$(ST_PATH)/st -w ''" > stabbed
+	echo -e "#!/bin/sh\n$(STABED_PATH)/$(TABBED_PATH)/tabbed -cr 2 $(STABED_PATH)/$(ST_PATH)/st -w ''" > stabbed
 
 clean:
 	$(MAKE) clean -C $(TABBED_PATH)
