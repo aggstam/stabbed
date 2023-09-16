@@ -12,7 +12,7 @@ You can build everything using the provided Makefile:
 ```
 % make
 ```
-This will build tabbed, st and stabbed inside project folder.
+This will first apply all patches and then build tabbed, st and stabbed inside project folder.
 
 ## Usage
 To run stabbed, you have to first give the corresponding permissions to the script, and then execute it:
@@ -30,4 +30,4 @@ If you also want to generate a desktop file for the installed script, execute:
 ```
 % make install-desktop
 ```
-This command will *NOT* install tabbed or st in your system, as the script uses the custom ones from the project folder.
+This commands will *NOT* install tabbed or st in your system, as the script uses the custom ones from the project folder.
