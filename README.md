@@ -11,6 +11,7 @@ In order to build both tabbed and st, you need the Xlib header files.
 ### Tabbed
 The following patch is applied to tabbed:
 1. [drag](https://tools.suckless.org/tabbed/patches/drag/)
+
 ### St
 A custom patch has been created, to work with latest master, combining the following patches:
 1. [blinking cursor](https://st.suckless.org/patches/blinking_cursor/)
@@ -22,7 +23,7 @@ A custom patch has been created, to work with latest master, combining the follo
 3. [universcroll](https://st.suckless.org/patches/universcroll/)
 
 ## Build
-You can build everything using the provided Makefile:
+You can build everything using the provided makefile:
 ```
 % make
 ```
@@ -32,7 +33,7 @@ This will first apply all patches and then build tabbed, st and stabbed inside p
 To run stabbed, you have to first give the corresponding permissions to the script, and then execute it:
 ```
 % chmod a+x stabbed
-% stabbed
+% ./stabbed
 ```
 
 ## Installation

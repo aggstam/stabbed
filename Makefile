@@ -4,6 +4,22 @@ STABED_PATH = $(shell pwd)
 TABBED_PATH = tabbed
 ST_PATH = st
 
+define STABBED =
+#!/bin/sh
+# --------------------------------------------------------------------------
+#
+# Very simple script to invoking suckless tabbed with st, resulting in a terminal
+# with tabs support built-in.
+# Usage: ./stabbed
+#
+# Author: Aggelos Stamatiou, September 2023
+#
+# See LICENSE file for copyright and license details.
+# --------------------------------------------------------------------------
+
+$(STABED_PATH)/$(TABBED_PATH)/tabbed -cr 2 $(STABED_PATH)/$(ST_PATH)/st -w ''
+endef
+
 all: stabbed
 
 patch-tabbed:
@@ -39,7 +55,7 @@ patch-st:
 stabbed: clean patch-tabbed patch-st
 	$(MAKE) -C $(TABBED_PATH)
 	$(MAKE) -C $(ST_PATH)
-	echo -e "#!/bin/sh\n$(STABED_PATH)/$(TABBED_PATH)/tabbed -cr 2 $(STABED_PATH)/$(ST_PATH)/st -w ''" > stabbed
+	$(file > stabbed,$(STABBED))
 
 clean:
 	$(MAKE) clean -C $(TABBED_PATH)
