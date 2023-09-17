@@ -8,11 +8,11 @@ Patches and custom configuration are provided to achieve the desired behavior.
 In order to build both tabbed and st, you need the Xlib header files.
 
 ## Patches
-### Tabbed
+### tabbed
 The following patch is applied to tabbed:
 1. [drag](https://tools.suckless.org/tabbed/patches/drag/)
 
-### St
+### st
 A custom patch has been created, to work with latest master, combining the following patches:
 1. [blinking cursor](https://st.suckless.org/patches/blinking_cursor/)
 2. [bold is not bright](https://st.suckless.org/patches/bold-is-not-bright/)

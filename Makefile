@@ -8,7 +8,7 @@ define STABBED =
 #!/bin/sh
 # --------------------------------------------------------------------------
 #
-# Very simple script to invoking suckless tabbed with st, resulting in a terminal
+# Very simple script invoking suckless tabbed with st, resulting in a terminal
 # with tabs support built-in.
 # Usage: ./stabbed
 #
