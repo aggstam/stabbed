@@ -6,4 +6,4 @@ Categories=Utilities;
 Name=sStabbed
 Comment=Open tabbed with st attached.
 Exec=stabbed
-Icon=stabbed-icon.svg
+Icon=stabbed-icon.png
