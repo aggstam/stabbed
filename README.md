@@ -23,7 +23,11 @@ A custom patch has been created, to work with latest master, combining the follo
 3. [universcroll](https://st.suckless.org/patches/universcroll/)
 
 ## Build
-You can build everything using the provided makefile:
+On first pull, we have to also pull suckless repos, so execute:
+```
+% git submodule update --init
+```
+Then, you can build everything using the provided makefile:
 ```
 % make
 ```
