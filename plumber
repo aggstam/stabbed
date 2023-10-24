@@ -1,0 +1,105 @@
+#!/bin/sh
+#
+# Copy me if you can.
+# By parazyd
+#
+
+# Command aliases
+alias ff="firefox"
+alias convert="magick convert"
+
+if [ -n "$1" ]; then
+	clip="$1"
+else
+	clip="$(xclip -o)"
+fi
+
+TERMCMD="${TERMCMD:-st -e}"
+
+case "$clip" in
+*.jpg|*.jpeg|*.JPG|*.JPEG|*.png|*.PNG|*.ico|*.ICO)
+	feh "$clip" &
+	;;
+
+*.mp4|*.MP4|*.webm|*.WEBM|*.mkv|*.MKV|*.avi|*.AVI|*.wav|*.WAV|\
+*.mp3|*.MP3)
+	mpv "$clip" &
+	;;
+
+*.txt|*.TXT|*.vtt|*.VTT|*.vt|*.VT)
+	case "$clip" in
+	gopher://*|gophers://*|http://*|https://*)
+		$TERMCMD sh -c "hurl '$clip' | less" &
+		;;
+	*)
+		$TERMCMD less "$clip" &
+		;;
+	esac
+	;;
+
+*.gif|*.GIF)
+	mpv --loop "$clip" &
+	;;
+
+*.svg|*.SVG)
+	case "$clip" in
+	gopher://*|gophers://*|http://*|https://*)
+		hurl "$clip" | convert svg:- png:- | feh - &
+		;;
+	*)
+		convert svg:- png:- < "$clip" | feh - &
+		;;
+	esac
+	;;
+
+gopher://*|gophers://*)
+	$TERMCMD sacc "$clip" &
+	;;
+
+cg://*)
+	id="$(echo "$clip" | cut -d'/' -f3)"
+	ff --new-tab "https://www.coingecko.com/en/coins/$id" &
+	;;
+
+http://*|https://*)
+	case "$clip" in
+	*www.reddit.com*)
+		clip="$(printf "%s" "$clip" | sed 's,www.reddit,old.reddit,')"
+		ff --new-tab "$clip" &
+		;;
+	*twimg.com*|*.scontent*.fbcdn.net*)
+		feh "$clip" &
+		;;
+	*youtube.com*|*youtu.be*|*vimeo.com*|*dailymotion.com*|*invidious.tube*|\
+	*yewtu.be*)
+		mpv "$clip" &
+		;;
+	*)
+		ff --new-tab "$clip" &
+		;;
+	esac
+	;;
+
+ytdl://*)
+	mpv "$clip" &
+	;;
+
+ssh://*)
+	$TERMCMD ssh "$clip" &
+	;;
+
+magnet:*)
+	printf "%s" "$clip" | xclip -sel clipboard
+	;;
+
+"")
+	echo -s "plumber: nothing to plumb"
+	exit 1
+	;;
+
+*)
+	echo -s "plumber: no plumber for plumbed data"
+	exit 1
+	;;
+
+esac

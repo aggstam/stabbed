@@ -24,7 +24,8 @@ A custom patch has been created, to work with latest master, combining the follo
 5. [scrollback-ringbuffer](https://st.suckless.org/patches/scrollback/st-scrollback-ringbuffer-0.8.5.diff)
 6. [scrollback-mouse](https://st.suckless.org/patches/scrollback/st-scrollback-mouse-20220127-2c5edf2.diff)
 7. [scrollback-mouse-altscreen](https://st.suckless.org/patches/scrollback/st-scrollback-mouse-altscreen-20220127-2c5edf2.diff)
-8. [universcroll](https://st.suckless.org/patches/universcroll/)
+8. [simple-plumb](https://st.suckless.org/patches/right_click_to_plumb/simple_plumb-0.8.5.diff)
+9. [universcroll](https://st.suckless.org/patches/universcroll/)
 
 ## Build
 On first pull, we have to also pull suckless repos, so execute:
@@ -75,7 +76,22 @@ This is our custom key bindings configuration for stabbed:
 | Ctrl+Minus          | Zoom out                      |
 | Ctrl+Shift+Plus     | Zoom in                       |
 
+### Plumber
+A custom plumber script is provided, which is invoked using mouse Button3(right click) for highlighted selection.
+<br>
+Sofrware used by the plumber:
+1. [feh](https://feh.finalrewind.org/)
+2. [mpv](https://mpv.io/)
+3. [hurl](https://codemadness.org/git/hurl/) (requires lbtls-devel)
+4. [imagemagick](https://imagemagick.org/)
+5. [sacc](https://codemadness.org/git/sacc/) (requires lbtls-devel)
+6. [firefox](https://www.mozilla.org/en-US/firefox/new/) or any of its forks
+
+You can configure the script to use different software and/or expand its capabilities.
+
 ## Credits
 Massive thanks to the suckless team for making software that sucks less.
+<br>
+Original plumber script was kindly provided by [parazyd](https://github.com/parazyd).
 <br>
 Stabbed custom icon uses a vector kindly provided from List Heist.

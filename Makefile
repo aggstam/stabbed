@@ -55,7 +55,8 @@ patch-st:
 	-e "s|kscrollup,      {.i = 1}|kscrollup,      {.i = 10}|g" \
 	-e "s|kscrolldown,    {.i = 1}|kscrolldown,    {.i = 10}|g" \
 	-e "s|TERMMOD,              XK_Prior,       zoom|TERMMOD,              XK_plus,        zoom|g" \
-	-e "s|TERMMOD,              XK_Next,        zoom|ControlMask,          XK_minus,       zoom|g"
+	-e "s|TERMMOD,              XK_Next,        zoom|ControlMask,          XK_minus,       zoom|g" \
+	-e "s|\"plumb\", \"-m\"|\"$(STABED_PATH)/plumber\", NULL|g"
 
 stabbed: clean patch-tabbed patch-st
 	$(MAKE) -C $(TABBED_PATH)
