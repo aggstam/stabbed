@@ -3,6 +3,7 @@
 STABED_PATH = $(shell pwd)
 TABBED_PATH = tabbed
 ST_PATH = st
+SHELL = zsh
 
 define STABBED =
 #!/bin/sh
@@ -17,7 +18,7 @@ define STABBED =
 # See LICENSE file for copyright and license details.
 # --------------------------------------------------------------------------
 
-$(STABED_PATH)/$(TABBED_PATH)/tabbed -cr 2 $(STABED_PATH)/$(ST_PATH)/st -w ''
+$(STABED_PATH)/$(TABBED_PATH)/tabbed -cr 2 $(STABED_PATH)/$(ST_PATH)/st -w '' -e '$(SHELL)'
 endef
 
 all: stabbed
@@ -47,7 +48,7 @@ patch-st:
 	@echo "Applying custom config..."
 	sed -i $(ST_PATH)/config.h \
 	-e "s|pixelsize=12|pixelsize=20|g" \
-	-e "s|/bin/sh|/bin/zsh|g" \
+	-e "s|/bin/sh|/bin/$(SHELL)|g" \
 	-e "s|tabspaces = 8|tabspaces = 4|g" \
 	-e "s|kscrollup,      {.i = 1}|kscrollup,      {.i = 10}|g" \
 	-e "s|kscrolldown,    {.i = 1}|kscrolldown,    {.i = 10}|g" \

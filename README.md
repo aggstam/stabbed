@@ -49,10 +49,12 @@ If you also want to generate a .desktop file for the installed script, execute:
 ```
 % make install-desktop
 ```
-These commands will *NOT* install tabbed or st in your system, as the script uses the pathed ones from the project folder.
+These commands will *NOT* install tabbed or st in your system, as the script uses the patched ones from the project folder.
 
 ## Usage
-Stabbed is configured to use 'zsh' as default shell.
+Stabbed is configured to use `zsh` as default shell.
+<br>
+You can use a different shell using `SHELL={shell}` make flag.
 <br>
 This is our custom key bindings configuration for stabbed:
 | Key                 | Action                        |
