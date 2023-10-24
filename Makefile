@@ -4,6 +4,7 @@ STABED_PATH = $(shell pwd)
 TABBED_PATH = tabbed
 ST_PATH = st
 SHELL = zsh
+OPACITY = 0.8
 
 define STABBED =
 #!/bin/sh
@@ -50,6 +51,7 @@ patch-st:
 	-e "s|pixelsize=12|pixelsize=20|g" \
 	-e "s|/bin/sh|/bin/$(SHELL)|g" \
 	-e "s|tabspaces = 8|tabspaces = 4|g" \
+	-e "s|alpha = 0.8|alpha = $(OPACITY)|g" \
 	-e "s|kscrollup,      {.i = 1}|kscrollup,      {.i = 10}|g" \
 	-e "s|kscrolldown,    {.i = 1}|kscrolldown,    {.i = 10}|g" \
 	-e "s|TERMMOD,              XK_Prior,       zoom|TERMMOD,              XK_plus,        zoom|g" \

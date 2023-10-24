@@ -6,6 +6,8 @@ Patches and custom configuration are provided to achieve the desired behavior.
 
 ## Requirements
 In order to build both tabbed and st, you need the Xlib header files.
+<br>
+Alpha patch(opacity) requires an X composite manager (e.g. picom, xcompmgr).
 
 ## Patches
 ### tabbed
@@ -14,13 +16,14 @@ The following patch is applied to tabbed:
 
 ### st
 A custom patch has been created, to work with latest master, combining the following patches:
-1. [blinking cursor](https://st.suckless.org/patches/blinking_cursor/)
-2. [bold is not bright](https://st.suckless.org/patches/bold-is-not-bright/)
-3. [scrollback](https://st.suckless.org/patches/scrollback/)
-3. [scrollback-ringbuffer](https://st.suckless.org/patches/scrollback/st-scrollback-ringbuffer-0.8.5.diff)
-3. [scrollback-mouse](https://st.suckless.org/patches/scrollback/st-scrollback-mouse-20220127-2c5edf2.diff)
-3. [scrollback-mouse-altscreen](https://st.suckless.org/patches/scrollback/st-scrollback-mouse-altscreen-20220127-2c5edf2.diff)
-3. [universcroll](https://st.suckless.org/patches/universcroll/)
+1. [alpha](https://st.suckless.org/patches/alpha/)
+2. [blinking cursor](https://st.suckless.org/patches/blinking_cursor/)
+3. [bold is not bright](https://st.suckless.org/patches/bold-is-not-bright/)
+4. [scrollback](https://st.suckless.org/patches/scrollback/)
+5. [scrollback-ringbuffer](https://st.suckless.org/patches/scrollback/st-scrollback-ringbuffer-0.8.5.diff)
+6. [scrollback-mouse](https://st.suckless.org/patches/scrollback/st-scrollback-mouse-20220127-2c5edf2.diff)
+7. [scrollback-mouse-altscreen](https://st.suckless.org/patches/scrollback/st-scrollback-mouse-altscreen-20220127-2c5edf2.diff)
+8. [universcroll](https://st.suckless.org/patches/universcroll/)
 
 ## Build
 On first pull, we have to also pull suckless repos, so execute:
@@ -55,6 +58,8 @@ These commands will *NOT* install tabbed or st in your system, as the script use
 Stabbed is configured to use `zsh` as default shell.
 <br>
 You can use a different shell using `SHELL={shell}` make flag.
+<br>
+To configure opacity, use `OPACITY={value}` make flag.
 <br>
 This is our custom key bindings configuration for stabbed:
 | Key                 | Action                        |
