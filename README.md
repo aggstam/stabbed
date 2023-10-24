@@ -7,12 +7,13 @@ Patches and custom configuration are provided to achieve the desired behavior.
 ## Requirements
 In order to build both tabbed and st, you need the Xlib header files.
 <br>
-Alpha patch(opacity) requires an X composite manager (e.g. picom, xcompmgr).
+Alpha patch(opacity) requires an X composite manager (e.g. xcompmgr, picom).
 
 ## Patches
 ### tabbed
-The following patch is applied to tabbed:
-1. [drag](https://tools.suckless.org/tabbed/patches/drag/)
+A custom patch has been created, to work with latest master, combining the following patches:
+1. [alpha](https://tools.suckless.org/tabbed/patches/alpha/)
+2. [drag](https://tools.suckless.org/tabbed/patches/drag/)
 
 ### st
 A custom patch has been created, to work with latest master, combining the following patches:

@@ -25,8 +25,8 @@ endef
 all: stabbed
 
 patch-tabbed:
-	@echo "Applying pach to tabbed..."
-	cd $(TABBED_PATH); git apply $(STABED_PATH)/tabbed-drag-20230128-41e2b8f.diff
+	@echo "Applying patch to tabbed..."
+	cd $(TABBED_PATH); git apply $(STABED_PATH)/tabbed.diff
 	@echo "Generating config file..."
 	$(MAKE) config.h -C $(TABBED_PATH)
 	@echo "Applying custom config..."
@@ -42,7 +42,7 @@ patch-tabbed:
 	-e "s|XK_k,      movetab|XK_Next,   movetab|g"
 
 patch-st:
-	@echo "Applying pach to st..."
+	@echo "Applying patch to st..."
 	cd $(ST_PATH); git apply $(STABED_PATH)/st.diff
 	@echo "Generating config file..."
 	$(MAKE) config.h -C $(ST_PATH)
