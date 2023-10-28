@@ -50,9 +50,13 @@ To install the script into your system, simply execute:
 ```
 % make install
 ```
-If you also want to generate a .desktop file for the installed script, execute:
+If you also want to generate and install a .desktop file for the script, execute:
 ```
-% make install-desktop
+% make desktop
+```
+Or in a single command:
+```
+% make install desktop
 ```
 These commands will *NOT* install tabbed or st in your system, as the script uses the patched ones from the project folder.
 

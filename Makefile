@@ -79,8 +79,7 @@ install: stabbed
 	@echo "Changing to superuser to install the script into the system..."
 	su -c "mkdir -p $(DESTDIR)$(PREFIX)/bin; cp -f stabbed $(DESTDIR)$(PREFIX)/bin; chmod 755 $(DESTDIR)$(PREFIX)/bin/stabbed"
 
-install-desktop: install
-	@echo "Changing to superuser to install the script into the system..."
+desktop:
 	@echo "Updating and installing .desktop file..."
 	sed -i -e "s|Icon=.*|Icon=$(STABED_PATH)/stabbed-icon.png|g" tabbed.desktop
 	mkdir -p $(HOME)/.local/share/applications
@@ -92,4 +91,4 @@ uninstall:
 	@echo "Removing .desktop file, if present..."
 	rm -f $(HOME)/.local/share/applications/tabbed.desktop	
 
-.PHONY: all patch-tabbed patch-st clean install install-desktop uninstall
+.PHONY: all patch-tabbed patch-st clean install desktop uninstall
