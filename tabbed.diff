@@ -1,8 +1,8 @@
-diff --git a/config.mk b/config.mk
-index 3a71529..095cead 100644
+diff --git a/Makefile b/Makefile
+index dda3cdb..b6c04ec 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -9,7 +9,7 @@ DOCPREFIX = ${PREFIX}/share/doc/${NAME}
+@@ -10,7 +10,7 @@ DOCPREFIX = ${PREFIX}/share/doc/${NAME}
  
  # use system flags.
  TABBED_CFLAGS = -I/usr/X11R6/include -I/usr/include/freetype2 ${CFLAGS}
@@ -12,10 +12,10 @@ index 3a71529..095cead 100644
  
  # OpenBSD (uncomment)
 diff --git a/tabbed.c b/tabbed.c
-index 9a44795..b4d47d1 100644
+index 81be5e4..07dc6a6 100644
 --- a/tabbed.c
 +++ b/tabbed.c
-@@ -88,6 +88,7 @@ typedef struct {
+@@ -89,6 +89,7 @@ typedef struct {
  
  /* function declarations */
  static void buttonpress(const XEvent *e);
@@ -31,7 +31,7 @@ index 9a44795..b4d47d1 100644
  };
  static int bh, obh, wx, wy, ww, wh;
  static unsigned int numlockmask;
-@@ -169,6 +169,9 @@ static char **cmd;
+@@ -170,6 +172,9 @@ static char **cmd;
  static char *wmname = "tabbed";
  static const char *geometry;
  
@@ -41,7 +41,7 @@ index 9a44795..b4d47d1 100644
  char *argv0;
  
  /* configuration, allows nested code to access above variables */
-@@ -209,6 +211,41 @@ buttonpress(const XEvent *e)
+@@ -209,6 +214,41 @@ buttonpress(const XEvent *e)
  	}
  }
  
@@ -83,7 +83,7 @@ index 9a44795..b4d47d1 100644
  void
  cleanup(void)
  {
-@@ -254,8 +257,8 @@ configurenotify(const XEvent *e)
+@@ -254,8 +294,8 @@ configurenotify(const XEvent *e)
  		ww = ev->width;
  		wh = ev->height;
  		XFreePixmap(dpy, dc.drawable);
@@ -94,7 +94,7 @@ index 9a44795..b4d47d1 100644
 
  		if (!obh && (wh <= bh)) {
  			obh = bh;
-@@ -399,7 +402,7 @@ drawtext(const char *text, XftColor col[ColLast])
+@@ -407,7 +447,7 @@ drawtext(const char *text, XftColor col[ColLast])
  			;
  	}
  
@@ -103,7 +103,7 @@ index 9a44795..b4d47d1 100644
  	XftDrawStringUtf8(d, &col[ColFG], dc.font.xfont, x, y, (XftChar8 *) buf, len);
  	XftDrawDestroy(d);
  }
-@@ -564,7 +567,7 @@ getcolor(const char *colstr)
+@@ -575,7 +615,7 @@ getcolor(const char *colstr)
  {
  	XftColor color;
  
@@ -112,7 +112,7 @@ index 9a44795..b4d47d1 100644
  		die("%s: cannot allocate color '%s'\n", argv0, colstr);
  
  	return color;
-@@ -1016,23 +1019,65 @@ setup(void)
+@@ -1037,23 +1077,65 @@ setup(void)
  			wy = dh + wy - wh - 1;
  	}
  
