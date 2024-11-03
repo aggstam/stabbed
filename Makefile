@@ -72,8 +72,6 @@ clean:
 	cd $(ST_PATH); git reset --hard; rm -f config.h
 	@echo "Removing stabbed..."
 	rm -f stabbed
-	@echo "Reset .desktop file..."
-	sed -i -e "s|Icon=.*|Icon=stabbed-icon.png|g" tabbed.desktop
 
 install: stabbed
 	@echo "Changing to superuser to install the script into the system..."
@@ -81,9 +79,10 @@ install: stabbed
 
 desktop:
 	@echo "Updating and installing .desktop file..."
-	sed -i -e "s|Icon=.*|Icon=$(STABED_PATH)/stabbed-icon.png|g" tabbed.desktop
+	cp -f tabbed.desktop local-tabbed.desktop
+	sed -i -e "s|Icon=.*|Icon=$(STABED_PATH)/stabbed-icon.png|g" local-tabbed.desktop
 	mkdir -p $(HOME)/.local/share/applications
-	cp tabbed.desktop $(HOME)/.local/share/applications
+	cp -f local-tabbed.desktop $(HOME)/.local/share/applications/tabbed.desktop
 
 uninstall:
 	@echo "Changing to superuser to remove the script from the system..."
