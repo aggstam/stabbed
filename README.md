@@ -29,34 +29,34 @@ A custom patch has been created, to work with latest master, combining the follo
 
 ## Build
 On first pull, we have to also pull suckless repos, so execute:
-```
-% git submodule update --init
+```shell
+$ git submodule update --init
 ```
 Then, you can build everything using the provided makefile:
-```
-% make
+```shell
+$ make
 ```
 This will first apply all patches and then build tabbed, st and stabbed inside project folder.
 
 ## Execution
 To run stabbed, you have to first give the corresponding permissions to the script, and then execute it:
-```
-% chmod a+x stabbed
-% ./stabbed
+```shell
+$ chmod a+x stabbed
+$ ./stabbed
 ```
 
 ## Installation
 To install the script into your system, simply execute:
-```
-% make install
+```shell
+$ make install
 ```
 If you also want to generate and install a .desktop file for the script, execute:
-```
-% make desktop
+```shell
+$ make desktop
 ```
 Or in a single command:
-```
-% make install desktop
+```shell
+$ make install desktop
 ```
 These commands will *NOT* install tabbed or st in your system, as the script uses the patched ones from the project folder.
 
